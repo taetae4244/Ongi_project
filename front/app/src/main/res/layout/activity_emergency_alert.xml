@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center">
+
+        <!-- 사이렌 이미지 -->
+        <ImageView
+            android:id="@+id/imgSiren"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/ic_siren"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp" />
+
+        <!-- 텍스트 -->
+        <TextView
+            android:id="@+id/tvAlertText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="위급 상황 발생!"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#D32F2F"
+            android:layout_marginBottom="48dp" />
+
+        <!-- 버튼 -->
+        <Button
+            android:id="@+id/btnDismissAlert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="알림 해제하기"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#1A237E"
+            android:elevation="6dp"
+            android:padding="12dp" />
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1087668337995",
+    "project_id": "ongi-d12e1",
+    "storage_bucket": "ongi-d12e1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1087668337995:android:99ce2570c9bb00265e3cce",
+        "android_client_info": {
+          "package_name": "com.example.front"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBGMcU6H-EBpR5-8yTvCHsbC89BHtKO54"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
