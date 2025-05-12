@@ -1,0 +1,4 @@
+# App module build outputs
+build/
+*.apk
+*.log

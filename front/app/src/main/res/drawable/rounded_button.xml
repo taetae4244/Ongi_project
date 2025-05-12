@@ -1,0 +1,6 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/main_blue"/> <!-- ❗ 반드시 @color 로 참조 -->
+    <corners android:radius="30dp"/>
+</shape>
+

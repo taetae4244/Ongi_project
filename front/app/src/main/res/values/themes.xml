@@ -1,0 +1,31 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- 기본 앱 테마 -->
+    <style name="Theme.Test1" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- 브랜드 색상: 파란 계열 -->
+        <item name="colorPrimary">@color/main_blue</item>
+        <item name="colorPrimaryVariant">@color/main_blue</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <item name="colorSecondary">@color/main_blue</item>
+        <item name="colorSecondaryVariant">@color/main_blue</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <!-- 상태바 색상 -->
+        <item name="android:statusBarColor">@color/main_blue</item>
+    </style>
+
+    <!-- 투명 테마 (MainActivity 등에서 사용) -->
+    <style name="Theme.OnGi.Transparent" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+
+        <!-- 동일하게 브랜드 색상 넣어주기 -->
+        <item name="colorPrimary">@color/main_blue</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/main_blue</item>
+        <item name="colorOnSecondary">@color/white</item>
+    </style>
+
+</resources>

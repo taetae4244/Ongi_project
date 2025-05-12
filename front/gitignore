@@ -1,0 +1,42 @@
+# --- Android Studio 기본 무시 ---
+.gradle/
+front/.idea/
+local.properties
+.DS_Store
+
+# 빌드 결과물
+/build/
+/captures/
+/.externalNativeBuild/
+/.cxx/
+*.iml
+
+# --- 운영체제 별 무시 항목 ---
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# --- 로그 파일 ---
+*.log
+
+# --- Kotlin 관련 캐시 ---
+*.kotlin_module
+
+# --- Jetpack Compose preview 캐시 ---
+*.preview
+
+# --- 기타 IDE 설정 파일 ---
+*.ipr
+*.iws
+
+# 환경 설정 무시
+config.properties
+local.properties
+.gradle/config.properties
