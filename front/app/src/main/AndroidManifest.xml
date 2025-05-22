@@ -3,6 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:networkSecurityConfig="@xml/network_security_config"
@@ -15,6 +20,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Material3.DayNight.NoActionBar"
         tools:targetApi="31">
+
+        <!--토큰 추가 과정 -->
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
+        <!-- ✅ Google Maps API Key 등록 -->
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDDVBz05iUGz9bIFK1g_fnkGMRp_wkoy7E" />
+
         <!-- ✅ MainActivity에만 투명 테마 적용 -->
         <activity
             android:name=".MainActivity"
@@ -30,16 +51,13 @@
             </intent-filter>
         </activity>
 
-
         <!-- ✅ 나머지 액티비티들 등록 -->
         <activity android:name=".SignupActivity" />
         <activity android:name=".CareGiver_HomeActivity" />
         <activity android:name=".CareGiver_MainActivity" />
         <activity android:name=".ConnectionCompleteActivity" />
         <activity android:name=".SeniorEmergencyCallActivity" />
-
-
-
+        <activity android:name=".GuardianMapActivity" />
 
     </application>
 </manifest>

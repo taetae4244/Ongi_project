@@ -16,18 +16,44 @@ import com.example.front.models.UserResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import android.content.Context
+import com.google.firebase.messaging.FirebaseMessaging
+import android.util.Log
 
 class MainActivity : AppCompatActivity() {
+    private val PREFS_NAME = "UserPrefs"
+    private val KEY_USERNAME = "username"
+
+    private fun refreshFCMToken() {
+        FirebaseMessaging.getInstance().deleteToken().addOnCompleteListener { deleteTask ->
+            if (deleteTask.isSuccessful) {
+                // 토큰 삭제 성공 후 새 토큰 발급
+                FirebaseMessaging.getInstance().token.addOnCompleteListener { tokenTask ->
+                    if (tokenTask.isSuccessful) {
+                        Log.d("FCM", "새 토큰이 발급되었습니다.")
+                    } else {
+                        Log.e("FCM", "새 토큰 발급 실패", tokenTask.exception)
+                    }
+                }
+            } else {
+                Log.e("FCM", "토큰 삭제 실패", deleteTask.exception)
+            }
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_login)
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+
 
         val registerButton = findViewById<Button>(R.id.registerLink)
         registerButton.setOnClickListener {
@@ -51,6 +77,13 @@ class MainActivity : AppCompatActivity() {
                         val loginResponse = response.body()
                         val role = loginResponse?.role
 
+                        // 로그인 성공 시 사용자 정보를 SharedPreferences에 저장
+                        val prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+                        prefs.edit().putString(KEY_USERNAME, username).apply()
+
+                        // FCM 토큰 갱신
+                        refreshFCMToken()
+
                         Toast.makeText(this@MainActivity, "로그인 성공!", Toast.LENGTH_SHORT).show()
 
                         when (role) {
@@ -60,6 +93,7 @@ class MainActivity : AppCompatActivity() {
                                         val user = response.body()
                                         val intent = if (user?.linkedUser != null) {
                                             Intent(this@MainActivity, CareGiver_MainActivity::class.java)
+                                                .putExtra("linkedUser", user.linkedUser) // ✅ 연동된 피보호자 UID 전달
                                         } else {
                                             Intent(this@MainActivity, CareGiver_HomeActivity::class.java)
                                         }
@@ -74,14 +108,19 @@ class MainActivity : AppCompatActivity() {
                                 })
                             }
 
+
                             "senior" -> {
                                 api.getUserInfo(username).enqueue(object : Callback<UserResponse> {
                                     override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
                                         val user = response.body()
                                         if (user?.linkedUser != null) {
+                                            // ✅ 수정된 부분: username 값을 uid로 사용하여 전달
                                             val intent = Intent(this@MainActivity, SeniorEmergencyCallActivity::class.java)
+                                            intent.putExtra("username", username)
+                                            intent.putExtra("linkedUser", user?.linkedUser)
                                             startActivity(intent)
                                             finish()
+
                                         } else {
                                             Toast.makeText(this@MainActivity, "아직 연동되지 않은 계정입니다.", Toast.LENGTH_SHORT).show()
                                         }
