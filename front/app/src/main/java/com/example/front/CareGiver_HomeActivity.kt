@@ -13,7 +13,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import com.example.front.RetrofitInstance
 
-
+// 보호자, 피보호자 계정 생성 후, 생성한 보호자 계정으로 첫 로그인 시 피보호자 계정과 연동하는 코드
 class CareGiver_HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

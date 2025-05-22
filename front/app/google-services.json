@@ -1,13 +1,33 @@
 {
   "project_info": {
-    "project_number": "1087668337995",
-    "project_id": "ongi-d12e1",
-    "storage_bucket": "ongi-d12e1.firebasestorage.app"
+    "project_number": "276991694261",
+    "firebase_url": "https://carenect-app-default-rtdb.firebaseio.com",
+    "project_id": "carenect-app",
+    "storage_bucket": "carenect-app.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1087668337995:android:99ce2570c9bb00265e3cce",
+        "mobilesdk_app_id": "1:276991694261:android:c2d46386f4b35d995df5fc",
+        "android_client_info": {
+          "package_name": "com.example.carenectapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByA_sUVEm2loGxgNpMfB6Y4lp_u-1A_tM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:276991694261:android:4a8ad1a1c01b7a605df5fc",
         "android_client_info": {
           "package_name": "com.example.front"
         }
@@ -15,7 +35,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCBGMcU6H-EBpR5-8yTvCHsbC89BHtKO54"
+          "current_key": "AIzaSyByA_sUVEm2loGxgNpMfB6Y4lp_u-1A_tM"
         }
       ],
       "services": {
