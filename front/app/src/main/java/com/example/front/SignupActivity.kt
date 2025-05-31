@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import okhttp3.ResponseBody
+import com.example.front.models.LoginResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

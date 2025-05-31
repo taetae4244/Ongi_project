@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <!--부제목-->
+    <TextView
+        android:id="@+id/textGreeting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="132dp"
+        android:layout_marginLeft="3dp"
+        android:text="안녕하세요, 보호자님!"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.137"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--제목-->
+    <TextView
+        android:id="@+id/title2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="100dp"
+        android:paddingTop="60dp"
+        android:text="피보호자님은 현재\n안전한 상태 입니다. 😊"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <!--로그아웃-->
+    <TextView
+        android:id="@+id/logoutText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:gravity="top"
+        android:lineSpacingExtra="-3sp"
+        android:text="로그아웃"
+        android:textColor="#B9B8B8"
+        android:textSize="16sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="325dp"
+        android:layout_marginTop="20dp"
+        />
+
+
+    <!--버튼1-->
+
+
+    <FrameLayout
+        android:id="@+id/btnCheckLocation"
+        android:layout_width="350dp"
+        android:layout_height="140dp"
+        android:layout_gravity="center"
+        android:background="@drawable/rounded_button_border"
+        android:elevation="20dp"
+        android:padding="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="340dp"
+        >
+
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_gravity="center|start"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="25dp"
+            android:contentDescription="알림확인"
+            android:gravity="center"
+            android:src="@drawable/pin" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|end"
+            android:gravity="center"
+            android:paddingEnd="45dp"
+            android:text="현위치 확인"
+            android:textColor="#1A237E"
+            android:textSize="29sp"
+            android:textStyle="bold" />
+    </FrameLayout>
+
+    <!--버튼2-->
+    <FrameLayout
+        android:id="@+id/btnsendAlert"
+        android:layout_width="350dp"
+        android:layout_height="140dp"
+        android:background="@drawable/rounded_button_border"
+        android:elevation="20dp"
+        android:padding="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="510dp"
+        >
+
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_gravity="center|start"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="25dp"
+            android:contentDescription="알림확인"
+            android:gravity="center"
+            android:src="@drawable/ringcheck" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|end"
+            android:paddingEnd="60dp"
+            android:text="알림 전송"
+            android:textColor="#1A237E"
+            android:textSize="29sp"
+            android:textStyle="bold" />
+    </FrameLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

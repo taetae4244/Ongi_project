@@ -22,9 +22,9 @@
             android:layout_width="236dp"
             android:layout_height="125dp"
             android:layout_marginTop="36dp"
-            android:paddingTop="60dp"
+            android:paddingTop="85dp"
             android:text="회원가입"
-            android:textSize="48sp"
+            android:textSize="28sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -223,7 +223,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <!-- 회원가입 버튼 -->
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnSignup"
             android:layout_width="0dp"
             android:layout_height="48dp"
