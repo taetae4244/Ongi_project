@@ -7,6 +7,7 @@ import android.media.AudioAttributes
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Build
+import android.provider.Settings
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
@@ -22,8 +23,42 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         super.onNewToken(token)
         Log.d("FCM", "새 토큰 생성됨: $token")
 
-        val uid = "test2"  // 실제 앱에서는 로그인된 피보호자 UID 사용
-        FirebaseDatabase.getInstance().getReference("tokens").child(uid).setValue(token)
+        val preferenceManager = PreferenceManager(this)
+        val username = preferenceManager.getUsername()
+        val role = preferenceManager.getRole()
+        val linkedUser = preferenceManager.getLinkedUser()
+
+        if (username != null && role != null) {
+            // 역할에 따라 다른 경로에 토큰 저장
+            val tokenPath = when (role) {
+                "caregiver" -> "caregiver_tokens"
+                "senior" -> "senior_tokens"
+                else -> "other_tokens"
+            }
+            
+            // 토큰 저장
+            FirebaseDatabase.getInstance().getReference(tokenPath)
+                .child(username)
+                .setValue(token)
+                .addOnSuccessListener {
+                    Log.d("FCM", "토큰 저장 성공: $username ($role)")
+                    
+                    // 보호자인 경우 연결된 피보호자 정보도 저장
+                    if (role == "caregiver" && linkedUser != null) {
+                        FirebaseDatabase.getInstance().getReference("caregiver_links")
+                            .child(username)
+                            .setValue(linkedUser)
+                            .addOnSuccessListener {
+                                Log.d("FCM", "보호자-피보호자 연결 정보 저장 성공")
+                            }
+                    }
+                }
+                .addOnFailureListener { e ->
+                    Log.e("FCM", "토큰 저장 실패", e)
+                }
+        } else {
+            Log.e("FCM", "사용자 정보가 없어 토큰을 저장할 수 없습니다.")
+        }
     }
 
     override fun onMessageReceived(remoteMessage: RemoteMessage) {

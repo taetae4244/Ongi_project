@@ -30,12 +30,6 @@
             </intent-filter>
         </service>
 
-        <service
-            android:name=".FallDetectionService"
-            android:enabled="true"
-            android:exported="false"
-            android:foregroundServiceType="dataSync|location|mediaPlayback|phoneCall|mediaProjection|camera|microphone|connectedDevice|systemExempted|specialUse" />
-
         <!-- ✅ Google Maps API Key 등록 -->
 
         <meta-data

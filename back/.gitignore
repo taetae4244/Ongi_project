@@ -1,37 +1,23 @@
-# ===== 공통 무시 항목 =====
-.DS_Store
-*.log
-*.tmp
+**/.env
 
-# ===== 백엔드(Node.js) 관련 =====
-node_modules/
-.env
-npm-debug.log
-
-# ===== Android Studio 관련 =====
-*.iml
+# --- Android Studio 기본 무시 ---
 .gradle/
-.idea/
+front/.idea/
 local.properties
-*.apk
-*.jks
-*.keystore
-captures/
-.externalNativeBuild/
-.cxx/
-*.hprof
+.DS_Store
 
-# ===== 빌드 결과물 =====
+# 빌드 결과물
 /build/
-app/build/
-*/build/
+/captures/
+/.externalNativeBuild/
+/.cxx/
+*.iml
 
-# ===== OS별 불필요 파일 =====
+# --- 운영체제 별 무시 항목 ---
 # macOS
+.DS_Store
 .AppleDouble
 .LSOverride
-Icon?
-._*
 
 # Windows
 Thumbs.db
@@ -39,16 +25,20 @@ ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
 
-# JetBrains IDE 설정
-*.iws
-*.ipr
+# --- 로그 파일 ---
+*.log
 
-# Jetpack Compose Preview 캐시
-*.preview
-
-# Kotlin 관련
+# --- Kotlin 관련 캐시 ---
 *.kotlin_module
 
-# ===== 특정 프로젝트 폴더 무시 (선택) =====
-# capstone/front/.gradle/cache/ 등 불필요한 경우 아래 포함
-front/.gradle/
+# --- Jetpack Compose preview 캐시 ---
+*.preview
+
+# --- 기타 IDE 설정 파일 ---
+*.ipr
+*.iws
+
+# 환경 설정 무시
+config.properties
+local.properties
+.gradle/config.properties
