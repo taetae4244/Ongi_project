@@ -1,8 +1,4 @@
 const User = require('../models/User');
-const admin = require('firebase-admin');
-
-// FCM Admin 초기화는 앱 실행 시 한 번만 해야 합니다.
-// app.js 등에서 이미 했다면 여기선 할 필요 없음
 
 exports.receiveGyroAlert = async (req, res) => {
   try {
